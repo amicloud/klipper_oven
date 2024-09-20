@@ -31,9 +31,9 @@ A custom G-code macro for Klipper that allows you to use your 3D printer's heate
 ## Installation
 
 
-### Fast One-Liner 
-#### This will download the .cfg to the default Klipper config directory, add the [include] line to your printer.cfg, and restart Klipper.
-1. ```curl https://raw.githubusercontent.com/amicloud/klipper_oven/main/oven.cfg -o ~/printer_data/config/oven.cfg && sed -i '2i\[include oven.cfg]' ~/printer_data/config/printer.cfg && systemctl restart klipper```
+## Fast One-Liner 
+### This will download the .cfg to the default Klipper config directory, add the [include] line to your printer.cfg, and restart Klipper.
+    curl https://raw.githubusercontent.com/amicloud/klipper_oven/main/oven.cfg -o ~/printer_data/config/oven.cfg && sed -i '2i\[include oven.cfg]' ~/printer_data/config/printer.cfg && systemctl restart klipper
 
 ### Manual Installation
   1. **Download the `oven.cfg` File:**
@@ -66,7 +66,7 @@ Use the `OVEN` macro to start the oven operation.
 
 **Syntax:**
 
-OVEN [TIME=<minutes>] [TEMP=<degrees Celsius>] [CHECK_INTERVAL=<seconds>]
+    OVEN [TIME=<minutes>] [TEMP=<degrees Celsius>] [CHECK_INTERVAL=<seconds>]
 
 - **TIME:** Duration in minutes (default: `60` minutes).
 - **TEMP:** Target temperature in degrees Celsius (default: `60°C`).
@@ -76,11 +76,11 @@ OVEN [TIME=<minutes>] [TEMP=<degrees Celsius>] [CHECK_INTERVAL=<seconds>]
 
 - Start the oven at default settings (60°C for 60 minutes):
 
-OVEN
+      OVEN
 
 - Start the oven at 70°C for 90 minutes, checking every 30 seconds:
 
-OVEN TIME=90 TEMP=70 CHECK_INTERVAL=30
+      OVEN TIME=90 TEMP=70 CHECK_INTERVAL=30
 
 
 ### Canceling the Oven
@@ -89,7 +89,7 @@ Use the `CANCEL_OVEN` macro to cancel the oven operation at any time.
 
 **Syntax:**
 
-CANCEL_OVEN
+    CANCEL_OVEN
 
 ---
 
@@ -111,49 +111,51 @@ CANCEL_OVEN
 
 ## Examples
 
-1. **Default Operation:**
+### Default Operation
 
-  Start the oven at 60°C for 60 minutes, checking every 60 seconds.
-  OVEN
+  **Start the oven at 60°C for 60 minutes, checking every 60 seconds.**
+  
+    OVEN
 
-2. **Custom Temperature and Time:**
+### Custom Temperature and Time:
 
-  Start the oven at 65°C for 120 minutes.
-  OVEN TEMP=65 TIME=120
+  **Start the oven at 65°C for 120 minutes.**
+  
+    OVEN TEMP=65 TIME=120
 
-3. **Custom Check Interval:**
+### Custom Check Interval:
 
-  Start the oven at 55°C for 45 minutes, checking every 15 seconds.
-  OVEN TEMP=55 TIME=45 CHECK_INTERVAL=15
+  **Start the oven at 55°C for 45 minutes, checking every 15 seconds.**
+  
+    OVEN TEMP=55 TIME=45 CHECK_INTERVAL=15
 
-4. **Cancel the Oven Operation:**
-   CANCEL_OVEN
+### Cancel the Oven Operation:
+     CANCEL_OVEN
 
 
 ---
 
 ## Recommendations
-
-- **Use a Heat-Resistant Cover:**
+### Use a Heat-Resistant Cover
 
 To improve heat retention and even distribution, it's recommended to place a heat-resistant cover over your build plate. Materials like **ASA** (Acrylonitrile Styrene Acrylate) are suitable for this purpose due to their thermal stability.
 
-- **Example Setup:**
+### Example Setup
 
  - Use an FDM-printed ASA lid to cover the build plate.
  - Keep the printer in an enclosure to maintain consistent ambient temperatures.
 
-- **Benefits:**
+##### Benefits
 
  - Enhances heat retention, leading to more efficient curing.
  - Provides a controlled environment, reducing temperature fluctuations.
 
-- **Ensure Material Compatibility:**
+### Ensure Material Compatibility
 
 - Verify that all materials used (molds, platters, covers, etc.) can safely withstand the target temperatures.
 - Avoid materials that may deform, melt, or release harmful fumes at your operating temperatures.
 
-- **Avoid Obstructing Sensors:**
+### Avoid Obstructing Sensors
 
 - Ensure that the cover does not block any airflow or thermal runaway sensors.
 - Proper sensor operation is crucial for safety mechanisms.
