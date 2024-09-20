@@ -20,7 +20,6 @@ A custom G-code macro for Klipper that allows you to use your 3D printer's heate
 ## Features
 
 - **Customizable Temperature and Time:** Set your desired temperature (°C) and duration (minutes).
-- **Adjustable Check Interval:** Define how frequently the macro checks the remaining time during the holding phase.
 - **Non-Blocking Operation:** The macro remains responsive and can be canceled at any time.
 - **Prevents Heater Idle Timeout:** Reissues the heater command periodically to prevent the heater from turning off automatically.
 - **User Feedback:** Provides real-time updates via `M117` messages and console responses.
